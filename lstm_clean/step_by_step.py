@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": 1,
    "metadata": {
     "collapsed": true
    },
@@ -14,7 +14,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 36,
+   "execution_count": 2,
    "outputs": [],
    "source": [
     "import pandas as pd\n",
@@ -28,7 +28,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 37,
+   "execution_count": 3,
    "outputs": [],
    "source": [
     "# Узнаем последнию известную дату. Нужна для создания промежутка значений будущих дат\n",
@@ -42,7 +42,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 38,
+   "execution_count": 4,
    "outputs": [],
    "source": [
     "import numpy as np\n",
@@ -77,7 +77,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 39,
+   "execution_count": 5,
    "outputs": [],
    "source": [
     "# Функция нормировки дат относительно всех дат(известных и которых хотим прогнощировать)\n",
@@ -112,7 +112,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 40,
+   "execution_count": 6,
    "outputs": [],
    "source": [
     "from sklearn.preprocessing import MinMaxScaler\n",
@@ -128,7 +128,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 41,
+   "execution_count": 7,
    "outputs": [],
    "source": [
     "# Данные для обучения отнормированные относительно всего промежутка(известных дат и дат для прогноза)\n",
@@ -141,7 +141,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 42,
+   "execution_count": 8,
    "outputs": [],
    "source": [
     "df_Pl_normalized_future_dates = df_Pl_normalized_all_dates.loc[end_know_date_index :]\n"
@@ -152,7 +152,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 43,
+   "execution_count": 9,
    "outputs": [],
    "source": [
     "# Данные для обучения\n",
@@ -165,7 +165,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 44,
+   "execution_count": 10,
    "outputs": [],
    "source": [
     "\n",
@@ -178,13 +178,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 45,
+   "execution_count": 11,
    "outputs": [
     {
      "data": {
       "text/plain": "array([[[0.        , 0.45454545, 0.3       , 0.69565217, 0.90909091]],\n\n       [[0.        , 0.45454545, 0.3       , 0.69565217, 1.        ]],\n\n       [[0.        , 0.45454545, 0.3       , 0.73913043, 0.        ]],\n\n       ...,\n\n       [[0.875     , 0.72727273, 0.33333333, 0.60869565, 0.90909091]],\n\n       [[0.875     , 0.72727273, 0.33333333, 0.60869565, 1.        ]],\n\n       [[0.875     , 0.72727273, 0.33333333, 0.65217391, 0.        ]]])"
      },
-     "execution_count": 45,
+     "execution_count": 11,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -198,7 +198,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 46,
+   "execution_count": 12,
    "outputs": [],
    "source": [
     "from sklearn.model_selection import train_test_split\n",
@@ -219,7 +219,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 13,
    "outputs": [
     {
      "name": "stdout",
@@ -227,17 +227,35 @@
      "text": [
       "(755262, 1, 5)\n",
       "KerasTensor(type_spec=TensorSpec(shape=(None, 1, 5), dtype=tf.float32, name='input_cnn'), name='input_cnn', description=\"created by layer 'input_cnn'\")\n",
-      "Epoch 1/50\n",
-      "188816/188816 [==============================] - 156s 824us/step - loss: 0.0018\n",
-      "Epoch 2/50\n",
-      "188816/188816 [==============================] - 155s 823us/step - loss: 0.0015\n",
-      "Epoch 3/50\n",
-      "188816/188816 [==============================] - 156s 826us/step - loss: 0.0014\n",
-      "Epoch 4/50\n",
-      "188816/188816 [==============================] - 156s 828us/step - loss: 0.0014\n",
-      "Epoch 5/50\n",
-      " 98212/188816 [==============>...............] - ETA: 1:15 - loss: 0.0013"
+      "Epoch 1/10\n",
+      "1476/1476 [==============================] - 4s 2ms/step - loss: 0.0032\n",
+      "Epoch 2/10\n",
+      "1476/1476 [==============================] - 4s 2ms/step - loss: 0.0022\n",
+      "Epoch 3/10\n",
+      "1476/1476 [==============================] - 3s 2ms/step - loss: 0.0019\n",
+      "Epoch 4/10\n",
+      "1476/1476 [==============================] - 3s 2ms/step - loss: 0.0018\n",
+      "Epoch 5/10\n",
+      "1476/1476 [==============================] - 4s 2ms/step - loss: 0.0016\n",
+      "Epoch 6/10\n",
+      "1476/1476 [==============================] - 4s 2ms/step - loss: 0.0015\n",
+      "Epoch 7/10\n",
+      "1476/1476 [==============================] - 4s 2ms/step - loss: 0.0015\n",
+      "Epoch 8/10\n",
+      "1476/1476 [==============================] - 4s 2ms/step - loss: 0.0014\n",
+      "Epoch 9/10\n",
+      "1476/1476 [==============================] - 4s 2ms/step - loss: 0.0014\n",
+      "Epoch 10/10\n",
+      "1476/1476 [==============================] - 3s 2ms/step - loss: 0.0014\n"
      ]
+    },
+    {
+     "data": {
+      "text/plain": "<keras.src.callbacks.History at 0x141fdce10>"
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
     }
    ],
    "source": [
@@ -268,20 +286,17 @@
     "model.compile(optimizer='adam', loss='mean_squared_error')\n",
     "\n",
     "# Обучение модели\n",
-    "epochs = 50\n",
-    "batch_size = 4\n",
+    "epochs = 10\n",
+    "batch_size = 512\n",
     "model.fit([X_train, X_train], y_train, epochs=epochs, batch_size=batch_size)\n"
    ],
    "metadata": {
-    "collapsed": false,
-    "pycharm": {
-     "is_executing": true
-    }
+    "collapsed": false
    }
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 14,
    "outputs": [],
    "source": [
     "import pandas as pd\n",
@@ -313,30 +328,24 @@
     "\n"
    ],
    "metadata": {
-    "collapsed": false,
-    "pycharm": {
-     "is_executing": true
-    }
+    "collapsed": false
    }
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 15,
    "outputs": [],
    "source": [
     "start_date = '2023-09-05'\n",
     "end_date = '2023-09-16'"
    ],
    "metadata": {
-    "collapsed": false,
-    "pycharm": {
-     "is_executing": true
-    }
+    "collapsed": false
    }
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 16,
    "outputs": [],
    "source": [
     "'''\n",
@@ -358,101 +367,39 @@
     "# Получаем датафрейм с нормированными датами на промежуток прогноза\n",
     "df_Pl_sacler_for_predict = df_Pl_all_dates_normilize.loc[indexes]\n",
     "\n",
-    "X_predict = df_Pl_sacler_for_predict[['year', 'month', 'day', 'hour', 'minute']].values\n",
-    "\n",
-    "X_predict = X_predict.reshape(-1, 1, 5)"
+    "X_predict = df_Pl_sacler_for_predict[['year', 'month', 'day', 'hour', 'minute']].values\n"
    ],
    "metadata": {
-    "collapsed": false,
-    "pycharm": {
-     "is_executing": true
-    }
+    "collapsed": false
    }
   },
   {
    "cell_type": "code",
-   "execution_count": null,
-   "outputs": [],
+   "execution_count": 21,
+   "outputs": [
+    {
+     "data": {
+      "text/plain": "numpy.ndarray"
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "# Предсказания\n",
-    "X_predict_scaled = X_predict\n",
-    "X_predict_cnn = X_predict\n",
-    "X_predict_lstm = X_predict\n",
-    "\n",
-    "predictions = model.predict([X_predict_cnn, X_predict_lstm])\n",
-    "\n",
-    "# Обратное масштабирование предсказанных значений\n",
-    "print(predictions)"
+    "type(X_predict)"
    ],
    "metadata": {
-    "collapsed": false,
-    "pycharm": {
-     "is_executing": true
-    }
+    "collapsed": false
    }
   },
   {
    "cell_type": "code",
-   "execution_count": null,
-   "outputs": [],
-   "source": [
-    "df_predict = df_Pl_sacler_for_predict.copy()\n",
-    "df_predict['P_l'] = predictions.flatten()\n",
-    "\n",
-    "df_predict = restored_date(df_predict, scaler)"
-   ],
-   "metadata": {
-    "collapsed": false,
-    "pycharm": {
-     "is_executing": true
-    }
-   }
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "outputs": [],
-   "source": [
-    "df_predict"
-   ],
-   "metadata": {
-    "collapsed": false,
-    "pycharm": {
-     "is_executing": true
-    }
-   }
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "outputs": [],
-   "source": [
-    "from matplotlib import pyplot as plt\n",
-    "\n",
-    "plt.figure(figsize=(14, 7))\n",
-    "plt.plot(df_predict['time'], df_predict['P_l'], linewidth=1)\n",
-    "plt.title(label=\"Predict\")\n",
-    "plt.ylabel(\"P_l Value\")\n",
-    "plt.xlabel(\"Time\")\n",
-    "plt.show()"
-   ],
-   "metadata": {
-    "collapsed": false,
-    "pycharm": {
-     "is_executing": true
-    }
-   }
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 20,
    "outputs": [],
    "source": [],
    "metadata": {
-    "collapsed": false,
-    "pycharm": {
-     "is_executing": true
-    }
+    "collapsed": false
    }
   }
  ],
